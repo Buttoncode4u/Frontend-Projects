@@ -1,0 +1,504 @@
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+        <title>Trading App - UI Design | Buttoncode by Awais</title>
+        <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+        <link href="css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
+        <link href="css/custom.css" rel="stylesheet" type="text/css"/>
+    </head>
+    <style>
+        
+*
+{
+  margin: 0;
+  padding: 0;
+  outline: none;
+}
+
+body
+{
+  font-family: 'Poppins', sans-serif;
+  overflow: hidden;
+  background: #313131;/*#2196f3;*/
+}
+
+:root{
+  --app-bg-color: #fff;
+  --app-primary-color: #3d30bb; /* ea0100 */
+  --app-text-dark-color: rgba(0, 0, 0, 0.8);
+  --app-text-light-color: rgba(0, 0, 0, 0.5);
+}
+
+#ta_app
+{
+  position: absolute;
+  right: 40%;
+  width: 350px;
+  height: 90%;
+  padding: 0 22px;
+  padding-bottom: 20px;
+  overflow: hidden;
+  background-color: var(--app-bg-color);
+  margin-top: 30px;
+  border-radius: 15px;
+  box-shadow: 0 0 0 0.5px rgba(255,255,255,0.3),
+              60px 70px 40px -55px rgba(0,0,0,0.5);
+}
+@media only screen and (max-width: 600px) {
+  #ta_app {
+    position: absolute;
+  right: 20%;
+  width: 350px;
+  height: 90%;
+  padding: 0 22px;
+  padding-bottom: 20px;
+  overflow: hidden;
+  background-color: var(--app-bg-color);
+  margin-top: 30px;
+  border-radius: 15px;
+  box-shadow: 0 0 0 0.5px rgba(255,255,255,0.3),
+              60px 70px 40px -55px rgba(0,0,0,0.5);
+  }
+}
+@media only screen and (max-width: 550px) {
+  #ta_app {
+    right: 12%;
+  }}
+  @media only screen and (max-width: 400px) {
+    #ta_app { position: absolute;
+      right: 7%;
+      width: 330px;
+      height: 90%;
+      padding: 0 22px;}}
+      @media only screen and (max-width: 375px) {
+        #ta_app { position: absolute;
+          right: 4%;
+          width: 295px;
+          height: 90%;
+          padding: 0 22px;}}
+        
+
+      
+/** **/
+#ta_header
+{
+  margin-top: 20px;
+}
+
+#ta_header div.name
+{
+  font-size: 18px;
+  font-weight: 500;
+  color: var(--app-text-light-color);
+}
+
+#ta_header div.caption
+{
+  font-size: 24px;
+  font-weight: 500;
+  margin-top: 0px;
+  color: var(--app-text-dark-color);
+}
+
+#ta_header div.caption i
+{
+  position: relative;
+  top: -2px;
+}
+
+#ta_header div.caption span
+{
+  position: relative;
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--app-primary-color);
+  top: -4px;
+}
+
+
+/** **/
+#ta_body_chart
+{
+  position: relative;
+  margin-top: 30px;
+}
+
+#ta_body_chart > div
+{
+  position: relative;
+  margin-left: -15px;
+}
+
+#ta_body_chart > div:after
+{
+  position: absolute;
+  content: ' ';
+  width: 100%;
+  height: 20px;
+  background-color: #fff;
+  left: 0;
+  bottom: 0;
+  margin-bottom: -10px;
+}
+
+
+/** **/
+#ta_action_btns 
+{
+  margin-top: 20px;
+}
+
+#ta_action_btns .btn
+{
+  position: relative;
+  font-size: 15px;
+  font-weight: 500;
+  letter-spacing: 1px;
+  border-radius: 8px;
+  border: none;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  color: #fff;
+}
+
+#ta_action_btns i.fa
+{
+  position: absolute;
+  width: 35px;
+  height: 35px;
+  line-height: 35px;
+  background-color: rgba(0,0,0,0.1);
+  border-radius: 8px;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  margin-left: 8px;
+}
+
+#ta_action_btns .ta_btn_buy
+{
+  background-color: var(--app-primary-color);
+}
+
+
+/** **/
+
+#ta_body_transactions
+{
+  margin-top: 20px;
+  padding: 15px 0;
+}
+
+#ta_body_transactions .body_title
+{
+  font-size: 14px;
+  font-weight: 600;
+  color: rgba(0, 0, 0, 0.9);
+}
+
+#ta_body_transactions .body_title span
+{
+  font-size: 10px;
+  font-weight: 600;
+  color: var(--app-primary-color);
+  float: right;
+  margin-top: 2px;
+  background-color: #fff;
+  padding: 2px 10px;
+  border-radius: 50px;
+}
+
+#ta_body_transactions li
+{
+  list-style: none;
+}
+
+div.transactions_list
+{
+  margin-top: 25px;
+}
+
+div.transactions_list > div
+{
+  margin-top: 20px;
+}
+
+div.transactions_list .transactions_thumb i
+{
+  width: 40px;
+  height: 40px;
+  line-height: 40px;
+  font-size: 16px;
+  border-radius: 8px;
+  background-color: #dee9f8;
+  color: var(--app-text-dark-color);
+}
+
+div.transactions_list .transaction_title
+{
+  font-size: 14px;
+  font-weight: 600;
+  display: block;
+  color: var(--app-text-light-color);
+}
+
+div.transactions_list .transaction_caption
+{
+  font-size: 10px;
+  font-weight: 500;
+  display: block;
+  color: var(--app-text-light-color);
+}
+
+div.transactions_list .transaction_amount
+{
+  font-size: 13.5px;
+  font-weight: 600;
+  display: block;
+  color: #29cbe4;
+}
+
+div.transactions_list .amount_sent
+{
+  color: var(--app-text-light-color);
+}
+                        
+    </style>
+    <body>
+        
+        <div id="ta_app" class="container-fluid">
+           
+            <!-- Start Section Header 1 -->
+            <section id="ta_header" class="row">
+                
+                <div class="col-12">
+                    <div class="name">
+                        Your Balance
+                    </div>
+                </div>
+                <div class="col-12">
+                    <div class="caption">
+                        9.086 BTC
+                        <i class="fa fa-caret-up text-success mr-1 ml-2"></i>
+                        <span>
+                            7.62% (+900$)
+                        </span>
+                    </div>
+                </div>
+                
+            </section>
+            <!-- End Section Header 1 -->
+
+            <!-- Start Section Body -->
+            <section id="ta_body_chart" class="row">
+                
+                <div id="chartContainer" style="height: 300px; " class="col-12 pl-0 text-center">
+                    
+                </div>
+                
+            </section>
+            <!-- End Section Body -->
+
+            <!-- Start Section Body -->
+            <section id="ta_action_btns" class="row">
+                
+                <div class="col-6 text-center pr-2">
+                    <button class="btn ta_btn_buy w-100">
+                        <i class="fa fa-long-arrow-down"></i> BUY
+                    </button>
+                </div>
+                <div class="col-6 text-center pl-2">
+                    <button class="btn ta_btn_sell bg-success w-100">
+                        <i class="fa fa-long-arrow-up"></i> SELL
+                    </button>
+                </div>
+                
+            </section>
+            <!-- End Section Body -->
+
+            <!-- Start Section Body -->
+            <section id="ta_body_transactions" class="row">
+                
+                <div class="col-12 text-center">
+                    <div class="body_title text-left">
+                        Recent transaction
+                    </div>
+                    <div class="transactions_list">
+                        <div class="row">
+                            <div class="col-2 justify-content-center align-self-center transactions_thumb">
+                                <i class="fa fa-long-arrow-down"></i>
+                            &>
+                            <div class="col-6 text-left pl-2 justify-content-center align-self-center">
+                                <span class="transaction_title">
+                                    Received
+                                </span>
+                                <span class="transaction_caption">
+                                    June 7, 2022 01:55 PM 
+                                </span>
+                            </div>
+                            <div class="col-4 justify-content-center align-self-center text-right transaction_amount">
+                                + 0.085 BTC
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-2 justify-content-center align-self-center transactions_thumb">
+                                <i class="fa fa-long-arrow-up"></i>
+                            </div>
+                            <div class="col-6 text-left pl-2 justify-content-center align-self-center">
+                                <span class="transaction_title">
+                                    Sent
+                                </span>
+                                <span class="transaction_caption">
+                                    June 7, 2022 03:14 PM 
+                                </span>
+                            </div>
+                            <div class="col-4 justify-content-center align-self-center text-right transaction_amount amount_sent">
+                                - 0.032 BTC
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-2 justify-content-center align-self-center transactions_thumb">
+                                <i class="fa fa-long-arrow-down"></i>
+                            </div>
+                            <div class="col-6 text-left pl-2 justify-content-center align-self-center">
+                                <span class="transaction_title">
+                                    Received
+                                </span>
+                                <span class="transaction_caption">
+                                    June 7, 2022 05:38 PM 
+                                </span>
+                            </div>
+                            <div class="col-4 justify-content-center align-self-center text-right transaction_amount">
+                                + 1.065 BTC
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+            </section>
+            <!-- End Section Body -->
+
+
+        </div>
+
+
+        <script src="js/jquery.min.js" type="text/javascript"></script>
+        <script src="js/canvasjs.min.js" type="text/javascript"></script>
+        <script src="js/data-chart.js" type="text/javascript"></script>
+        <script src="js/custom.js" type="text/javascript"></script>
+
+    </body>
+<script>
+    
+var chart = new CanvasJS.Chart("chartContainer", {
+        animationEnabled: true,
+        theme: "light2", // "light1", "light2", "dark1", "dark2"
+        exportEnabled: false,
+        title:{
+            text: ""
+        },
+        subtitles: [{
+            text: ""
+        }],
+        axisX: {
+            valueFormatString: "MMM",
+            lineThickness: 0,
+            gridThickness: 0,
+            tickLength: 0
+        },
+        axisY: {
+            prefix: "$",
+            title: "",
+            labelFontColor: "transparent",
+            lineThickness: 0,
+            gridThickness: 0,
+            tickLength: 0
+        },
+        axisY2: {
+            prefix: "",
+            suffix: " BTC",
+            title: "",
+            tickLength: 0,
+            lineThickness: 0,
+            gridThickness: 0,
+            tickLength: 0
+        },
+        toolTip: {
+            shared: true
+        },
+        legend: {
+            reversed: true,
+            cursor: "pointer",
+            itemclick: toggleDataSeries,
+        },     
+        data: [{
+            type: "candlestick",
+            color: "#3d30bb",
+            risingColor: "#dee9f8",
+            showInLegend: true,
+            cornerRadius: 15,
+            name: "",
+            yValueFormatString: "$#,##0.00",
+            xValueFormatString: "MMMM",
+            dataPoints: [   // Y: [Open, High ,Low, Close]
+                { x: new Date(2016, 0), y: [101.949997, 112.839996, 89.370003, 112.209999] },
+                { x: new Date(2016, 1), y: [112.269997, 117.589996, 96.820000, 106.919998] },
+                { x: new Date(2016, 2), y: [107.830002, 116.989998, 104.400002, 114.099998] },
+                { x: new Date(2016, 3), y: [113.750000, 120.790001, 106.309998, 117.580002] },
+                { x: new Date(2016, 4), y: [117.830002, 121.080002, 115.879997, 118.809998] },
+                { x: new Date(2016, 5), y: [118.500000, 119.440002, 108.230003, 114.279999] },
+                { x: new Date(2016, 6), y: [114.199997, 128.330002, 112.970001, 123.940002] },
+                { x: new Date(2016, 7), y: [123.849998, 126.730003, 122.070000, 126.120003] },
+                { x: new Date(2016, 8), y: [126.379997, 131.979996, 125.599998, 128.270004] },
+                { x: new Date(2016, 9), y: [128.380005, 133.500000, 126.750000, 130.990005] },
+                { x: new Date(2016, 10), y: [131.410004, 131.940002, 113.550003, 118.419998] },
+                { x: new Date(2016, 11), y: [118.379997, 122.500000, 114.000000, 115.050003] }
+            ]
+        },
+        {
+            type: "line",
+            color: "#28a745",
+            showInLegend: true,
+            name: "",
+            axisYType: "secondary",
+            yValueFormatString: "$#,##0.00bn",
+            xValueFormatString: "MMMM",
+            dataPoints: [
+                { x: new Date(2016, 2), y: 1.510 },
+                { x: new Date(2016, 5), y: 2.055 },
+                { x: new Date(2016, 8), y: 2.379 },
+                { x: new Date(2016, 11), y: 3.568 }
+            ]
+        },
+        {
+            type: "line",
+            showInLegend: true,
+            name: "",
+            axisYType: "secondary",
+            yValueFormatString: "$#,##0.00bn",
+            xValueFormatString: "MMMM",
+            dataPoints: [
+                { x: new Date(2016, 2), y: 5.382 },
+                { x: new Date(2016, 5), y: 6.436 },
+                { x: new Date(2016, 8), y: 7.011 },
+                { x: new Date(2016, 11), y: 8.809 }
+            ]
+        }]
+    });
+chart.render();
+
+function toggleDataSeries(e) {
+    if (typeof (e.dataSeries.visible) === "undefined" || e.dataSeries.visible) {
+        e.dataSeries.visible = false;
+    } else {
+        e.dataSeries.visible = true;
+    }
+    e.chart.render();
+}
+                        
+</script>
+</html>
+                        
